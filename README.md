@@ -1,8 +1,13 @@
 # garage_v_parrot
 ## Démarche à suivre pour exécution en local
 ### Création de la Base de Données
+Un fichier d'installation de la base de donnée est fournie dans le dossier install/gparrotSql.txt
 
-Téléchargez le fichier gparrot.sql
+Si vous voulez avoir des exemples vous pouvez utiliser le fichier install/gparrot.sql
+
+Dans les deux cas tout ce passe dans phpMyAdmin avve un lin qui devrait ressembler à ça http://localhost/phpMyAdmin5/
+
+
 
 ### Création d'un administrateur pour le back-office
 Un aministrateur est déjà créé dans pour le back-office => admin: "userAdmin", 
