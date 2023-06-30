@@ -49,7 +49,7 @@ shuffle($reviews);
                         </ol>
                         <div class="carousel-inner">
                             <?php foreach ($reviews as $index => $review) : ?>
-                                <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
+                                <div class="carousel-item <?= $index == 0 ? 'active' : '' ?> fade">
                                     <div class="card mb-3">
                                         <div class="card-body">
                                             <h5 class="card-title"><?= htmlspecialchars($review['nom']) ?></h5>
@@ -77,7 +77,7 @@ shuffle($reviews);
             </div>
         </div>
         <div class="col-md-6">
-            <div id="carCarousel" class="carousel slide" data-ride="carousel">
+            <div id="carCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
                     <?php foreach ($carImages as $index => $image) : ?>
                         <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
