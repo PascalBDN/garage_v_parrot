@@ -8,7 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 include('../config.php');
-include('../../admin/navbar.php');
+include('../../admin/header.php');
 ?>
 
 <style>

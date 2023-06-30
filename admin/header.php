@@ -22,13 +22,13 @@
                     <a class="nav-link" href="../apps/cars/">Gérer le parc occasion</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../apps/services/">Gérer les services</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../apps/testimonial/commentsToApprove.php">Approuver des commentaires</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../apps/users.php">Gérer le personnel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="apps/services/">Gérer les services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Déconnexion</a>
