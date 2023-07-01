@@ -19,13 +19,13 @@
             <ul class="navbar-nav me-auto">
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Gérer le parc occasion</a>
+                    <a class="nav-link" href="../cars/">Gérer le parc occasion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../services/">Gérer les services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../testimonial/commentsToApprove.php">Approuver des commentaires</a>
+                    <a class="nav-link" href="#">Approuver des commentaires</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../users.php">Gérer le personnel</a>

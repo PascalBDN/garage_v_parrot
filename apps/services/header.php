@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Administration</a>
+        <a class="navbar-brand" href="../../admin//admin.php">Administration</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,19 +19,19 @@
             <ul class="navbar-nav me-auto">
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="../apps/cars/">Gérer le parc occasion</a>
+                    <a class="nav-link" href="../cars/">Gérer le parc occasion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../apps/services/">Gérer les services</a>
+                    <a class="nav-link" href="#">Gérer les services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../apps/testimonial/commentsToApprove.php">Approuver des commentaires</a>
+                    <a class="nav-link" href="../testimonial/commentsToApprove.php">Approuver des commentaires</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../apps/users.php">Gérer le personnel</a>
+                    <a class="nav-link" href="../users.php">Gérer le personnel</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Déconnexion</a>
+                    <a class="nav-link" href="../../admin/logout.php">Déconnexion</a>
                 </li>
                 
             </ul>
