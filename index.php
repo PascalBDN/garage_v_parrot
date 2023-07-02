@@ -76,7 +76,7 @@ shuffle($reviews);
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <div id="carCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
                     <?php foreach ($carImages as $index => $image) : ?>

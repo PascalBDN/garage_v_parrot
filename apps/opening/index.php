@@ -24,8 +24,8 @@ try {
 </head>
 <body>
 
-<div class="container">
-    <h2 class="my-4">Horaires du garage</h2>
+<div class="container mt-4">
+    <h3 class="">Horaires du garage</h3>
 
 
 

@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Vérifier si l'utilisateur est connecté et a le rôle d'administrateur
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    echo '<script>alert("Vous devez être connecté pour accéder à cette page.");</script>';
+// Vérifier si l'utilisateur est connecté et a le rôle d'administrateur ou de staff
+if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'staff')) {
+    echo '<script>alert("Vous devez être connecté en tant qu\'administrateur ou staff pour accéder à cette page.");</script>';
     echo '<script>window.location.href = "../../admin/index.php";</script>';
     exit;
 }
@@ -17,8 +17,16 @@ $stmt->execute();
 
 $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <?php
-include ('header.php')
+// Vérifier le rôle de l'utilisateur
+if ($_SESSION['role'] === 'admin') {
+    // Inclure l'en-tête pour les administrateurs
+    include('header.php');
+} elseif ($_SESSION['role'] === 'staff') {
+    // Inclure l'en-tête pour le personnel
+    include('headerstaff.php');
+}
 ?>
 <body>
 

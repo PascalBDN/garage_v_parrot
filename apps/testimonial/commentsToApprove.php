@@ -1,15 +1,34 @@
 <?php
-
 session_start();
 
-// Vérifier si l'utilisateur est connecté et a le rôle d'administrateur
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    echo '<script>alert("Vous devez être connecté pour accéder à cette page.");</script>';
+// Vérifier si l'utilisateur est connecté et a le rôle d'administrateur ou de staff
+if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'staff')) {
+    echo '<script>alert("Vous devez être connecté en tant qu\'administrateur ou staff pour accéder à cette page.");</script>';
     echo '<script>window.location.href = "../../admin/index.php";</script>';
     exit;
 }
-include ('header.php');
+
+$dsn = 'mysql:host=localhost;dbname=gparrot';
+$pdo = new PDO($dsn, 'admin', 'pass');
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$stmt = $pdo->prepare("SELECT * FROM cars ORDER BY id DESC");
+$stmt->execute();
+
+$cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<?php
+// Vérifier le rôle de l'utilisateur
+if ($_SESSION['role'] === 'admin') {
+    // Inclure l'en-tête pour les administrateurs
+    include('header.php');
+} elseif ($_SESSION['role'] === 'staff') {
+    // Inclure l'en-tête pour le personnel
+    include('headerstaff.php');
+}
+?>
+
 <body>
     <h1>Gestion des avis clients</h1>
     
