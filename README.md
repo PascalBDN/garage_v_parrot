@@ -56,13 +56,16 @@ Un fichier d'installation de la base de donnée est fournie dans le dossier inst
     );
     
     -- Création de la table users.
+ 
     CREATE TABLE users (
-      id INT(11) NOT NULL AUTO_INCREMENT,
+      id INT(11) NOT NULL,
       username VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NULL DEFAULT NULL,
       password VARCHAR(255) NOT NULL,
       role ENUM('admin', 'staff') NOT NULL,
       PRIMARY KEY (id)
     );
+
 
 
 Si vous voulez avoir des exemples vous pouvez utiliser le fichier install/gparrot.sql
