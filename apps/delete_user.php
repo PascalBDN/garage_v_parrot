@@ -1,41 +1,37 @@
 <?php
 session_start();
 
-// Vérifiez si l'utilisateur est connecté
-if (!isset($_SESSION['username'])) {
-    header('Location: login.php'); // Redirigez l'utilisateur vers la page de connexion
-    exit();
+// Vérifier si l'utilisateur est connecté et a le rôle d'administrateur
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    echo '<script>alert("Vous devez être connecté en tant qu\'administrateur pour accéder à cette page.");</script>';
+    echo '<script>window.location.href = "../admin/index.php";</script>';
+    exit;
 }
 
-// Vérifiez si l'utilisateur est un administrateur
-if ($_SESSION['role'] != 'admin') {
-    die('Accès refusé'); // Affichez un message d'erreur
+// Vérifier si l'ID de l'utilisateur est présent dans la requête POST
+if (!isset($_POST['user_id'])) {
+    echo '<script>alert("ID de l\'utilisateur manquant.");</script>';
+    echo '<script>window.location.href = "index.php";</script>';
+    exit;
 }
+
+// Récupérer l'ID de l'utilisateur depuis la requête POST
+$user_id = $_POST['user_id'];
 
 // Connectez-vous à la base de données
 $db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', 'root');
 
-// Vérifiez si l'ID de l'utilisateur à supprimer a été envoyé via POST
-if (isset($_POST['user_id'])) {
-    // Récupérez l'ID de l'utilisateur à supprimer
-    $user_id = $_POST['user_id'];
+// Supprimer l'utilisateur de la base de données
+$deleteQuery = $db->prepare('DELETE FROM users WHERE id = :user_id');
+$deleteQuery->bindParam(':user_id', $user_id);
 
-    // Supprimez l'utilisateur de la base de données
-    $delete = $db->prepare('DELETE FROM users WHERE id = :user_id');
-    $delete->execute(['user_id' => $user_id]);
-
-    // Redirigez vers la page "users.php" avec un message de succès
-    $_SESSION['success_message'] = "L'utilisateur a été supprimé avec succès.";
-    header('Location: users.php');
-    exit();
+if ($deleteQuery->execute()) {
+    echo '<script>alert("Utilisateur supprimé avec succès.");</script>';
+    echo '<script>window.location.href = "users.php";</script>';
+    exit;
 } else {
-    // Si aucun ID utilisateur n'a été fourni, redirigez vers la page "users.php" avec un message d'erreur
-    $_SESSION['error_message'] = "Une erreur s'est produite lors de la suppression de l'utilisateur.";
-    header('Location: users.php');
-    exit();
+    echo '<script>alert("Une erreur s\'est produite lors de la suppression de l\'utilisateur.");</script>';
+    echo '<script>window.location.href = "index.php";</script>';
+    exit;
 }
 ?>
-
-
-
-

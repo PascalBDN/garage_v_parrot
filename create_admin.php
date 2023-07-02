@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérez les valeurs du formulaire
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $email = $_POST['email'];
     
     // Effectuez les validations nécessaires sur les valeurs reçues
     
@@ -14,31 +15,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     
     // Insérez le nouvel administrateur dans la base de données
-    $query = $db->prepare('INSERT INTO users (username, password, role) VALUES (?, ?, ?)');
-    $query->execute([$username, $hashedPassword, 'admin']);
+    $query = $db->prepare('INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, ?)');
+    $query->execute([$username, $hashedPassword, $email, 'admin']);
     
     // Redirigez l'utilisateur vers la page de liste des utilisateurs
-    header('Location: users.php');
+    header('Location: apps/users.php');
     exit();
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Créer un nouvel administrateur</title>
-</head>
-<body>
-    <h1>Créer un nouvel administrateur</h1>
+<?php 
+include ('header.php');
+?>
+
+    <div class="container">
+        <h1>Créer un nouvel administrateur</h1>
     
-    <form method="POST" action="create_admin.php">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required><br>
+        <form method="POST" action="create_admin.php">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
         
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required><br>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
         
-        <input type="submit" value="Créer administrateur">
-    </form>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Créer administrateur</button>
+        </form>
+    </div>
 </body>
+
 </html>

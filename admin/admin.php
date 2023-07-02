@@ -1,4 +1,6 @@
 <?php
+
+
 session_start();
 
 // Vérifier si l'utilisateur est connecté et a le rôle d'administrateur

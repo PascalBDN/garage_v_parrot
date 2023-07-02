@@ -1,21 +1,21 @@
 <?php
 // Récupérez les informations du formulaire
-$username = $_POST['username'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
 // Connectez-vous à la base de données
 $db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', 'root');
 
-// Récupérez l'utilisateur de la base de données
-$query = $db->prepare('SELECT * FROM users WHERE username = :username');
-$query->execute(['username' => $username]);
+// Récupérez l'utilisateur de la base de données en utilisant l'e-mail
+$query = $db->prepare('SELECT * FROM users WHERE email = :email');
+$query->execute(['email' => $email]);
 $user = $query->fetch();
 
 // Vérifiez le mot de passe
 if ($user && hash('sha256', $password) == $user['password']) {
     // Le mot de passe est correct. Démarrer une session et stocker les informations de l'utilisateur dans la session.
     session_start();
-    $_SESSION['username'] = $user['username'];
+    $_SESSION['email'] = $user['email'];
     $_SESSION['role'] = $user['role'];
     
     // Redirigez l'utilisateur en fonction de son rôle
@@ -26,7 +26,8 @@ if ($user && hash('sha256', $password) == $user['password']) {
     }
 } else {
     // Le mot de passe est incorrect. Afficher un message d'erreur.
-    echo "Nom d'utilisateur ou mot de passe incorrect";
+    echo "Email ou mot de passe incorrect";
 }
 ?>
+
 

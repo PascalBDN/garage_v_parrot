@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// Vérifier si l'utilisateur est connecté et a le rôle d'administrateur
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    echo '<script>alert("Vous devez être connecté pour accéder à cette page.");</script>';
+    echo '<script>window.location.href = "../../admin/index.php";</script>';
+    exit;
+}
 
 $dsn = 'mysql:host=localhost;dbname=gparrot';
 $pdo = new PDO($dsn, 'admin', 'pass');
