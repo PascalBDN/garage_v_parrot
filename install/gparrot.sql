@@ -176,9 +176,9 @@ CREATE TABLE `users` (
   `role` enum('admin','staff') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
+---
 -- Déchargement des données de la table `users`
---
+---
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
 (26, 'adminUser', NULL, '$2y$10$5NziUWcWeyo2fQdZAmN0quG2.ZVsXqmUj7h4B2PCik0jOxf.i5zUG', 'admin'),
