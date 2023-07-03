@@ -1,5 +1,5 @@
         <!-- Barre de navigation -->
-        <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <nav class="navbar navbar-expand navbar-dark navbar-pink">
         <div class="container-fluid">
                 <!-- Titre de la page -->
                 <a href="#" class="navbar-brand"><img class="rounded" src="images/Garage V Parrot.png" alt="Logo Garage V Parrot" width="150" height="150"></a>

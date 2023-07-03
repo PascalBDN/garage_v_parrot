@@ -1,5 +1,5 @@
 
-    <footer class="container-fluid bg-warning">
+    <footer class="container-fluid">
         <div class="row justify-content-around">
             <div class="col-lg-6 col-12">
             <?php
@@ -12,7 +12,7 @@ include('apps/opening/index.php');
     <table class="table">
         <tr>
             <td>
-            <h3 class="">Nous contacter</h3>
+            <h3 class="mt-3">Nous contacter</h3>
                 <ul class="list-unstyled">
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">

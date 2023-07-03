@@ -4,11 +4,17 @@ body {
 h1 {
     color: #F51720;
 }
+footer {
+    background-color: #2FF3E0;
+}
+.navbar-pink {
+    background-color: pink;
+}
 .card-title {
     color: #F8D210;
 }
 footer {
-    background-color: #2FF3E0;
+    background-color: #2FF3E0 !important;
 }
 .carousel-fade .carousel-item {
     opacity: 0;
@@ -48,4 +54,19 @@ footer {
 .carousel-item.fade.active {
     opacity: 1;
 }
+.list-unstyled li {
+    position: relative;
+    padding-left: 20px; /* ajustez la valeur selon votre besoin */
+    margin-bottom: 10px;
+}
 
+.list-unstyled li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px; /* ajustez la largeur selon votre besoin */
+    height: 100%; /* ajustez la hauteur selon votre besoin */
+    background-color: pink; /* ajustez la couleur selon votre besoin */
+}
