@@ -9,6 +9,7 @@ include('navbar.php');
         <h1>Nous contacter</h1>
 
         <form action="envoyer_email.php" method="post">
+            
             <div class="mb-3">
                 <label for="nom" class="form-label">Nom</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
