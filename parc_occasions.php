@@ -65,26 +65,63 @@ include('navbar.php');
 
             <!-- Liste des voitures -->
             <div id="carList" class="col-12 row mt-4">
-                <?php foreach ($cars as $car) : ?>
-                <div class="col-sm-6 col-md-4 mt-4 mt-4">
-                    <div class="card">
-                        <img src="apps/cars/<?php echo $car['img']; ?>" class="card-img-top rounded-3"
-                            alt="Voiture d'occasion" style="height: 200px">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $car['modele']; ?></h5>
-                            <p class="card-text">Prix : <?php echo $car['prix']; ?>€</p>
-                            <p>Année de mise en circulation : <?php echo $car['annee']; ?></p>
-                            <p>Kilométrage : <?php echo $car['kilometrage']; ?> km</p>
-                            <a href="#" class="btn btn-sm btn-primary open-modal" data-bs-toggle="modal"
-                                data-bs-target="#carModal" data-id="<?php echo $car['id']; ?>">Détails
-                            </a>
-                            <a href="contact.php?subject=Contact%20-%20<?php echo $car['modele']; ?>%20(<?php echo $car['annee']; ?>)" class="btn btn-sm btn-primary" data-id="<?php echo $car['modele']; ?>">Contactez Nous</a>
+    <?php
+    // Pagination variables
+    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+    $itemsPerPage = 12;
+    $startIndex = ($currentPage - 1) * $itemsPerPage;
+    $totalItems = count($cars);
+    $totalPages = ceil($totalItems / $itemsPerPage);
 
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach; ?>
+    // Get a subset of cars based on the pagination variables
+    $pagedCars = array_slice($cars, $startIndex, $itemsPerPage);
+
+    foreach ($pagedCars as $car) :
+    ?>
+    <div class="col-sm-6 col-md-4 mt-4 mt-4">
+        <div class="card">
+            <img src="apps/cars/<?php echo $car['img']; ?>" class="card-img-top rounded-3" alt="Voiture d'occasion"
+                style="height: 200px">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $car['modele']; ?></h5>
+                <p class="card-text">Prix : <?php echo $car['prix']; ?>€</p>
+                <p>Année de mise en circulation : <?php echo $car['annee']; ?></p>
+                <p>Kilométrage : <?php echo $car['kilometrage']; ?> km</p>
+                <a href="#" class="btn btn-sm btn-primary open-modal" data-bs-toggle="modal"
+                    data-bs-target="#carModal" data-id="<?php echo $car['id']; ?>">Détails
+                </a>
+                <a href="contact.php?subject=Contact%20-%20<?php echo $car['modele']; ?>%20(<?php echo $car['annee']; ?>)"
+                    class="btn btn-sm btn-primary" data-id="<?php echo $car['modele']; ?>">Contactez Nous</a>
+
             </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+
+<!-- Pagination -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center mt-4">
+        <?php if ($currentPage > 1) : ?>
+        <li class="page-item">
+            <a class="page-link" href="?page=<?php echo $currentPage - 1; ?>">Précédent</a>
+        </li>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+        <li class="page-item <?php echo ($i == $currentPage) ? 'active' : ''; ?>">
+            <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+        </li>
+        <?php endfor; ?>
+
+        <?php if ($currentPage < $totalPages) : ?>
+        <li class="page-item">
+            <a class="page-link" href="?page=<?php echo $currentPage + 1; ?>">Suivant</a>
+        </li>
+        <?php endif; ?>
+    </ul>
+</nav>
+
         </div>
     </div>
 
