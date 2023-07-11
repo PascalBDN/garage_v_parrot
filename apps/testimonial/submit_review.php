@@ -33,5 +33,5 @@ $query = "INSERT INTO avis_clients (nom, commentaire, note) VALUES ($name, $comm
 $db->exec($query);
 
 //Rediriger l'utilisateur vers la page d'accueil
-header('Location: index.php');
+header('Location: commentsToApprove.php');
 exit;

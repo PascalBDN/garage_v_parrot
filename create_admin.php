@@ -1,6 +1,6 @@
 <?php
 // Connectez-vous à la base de données
-$db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', 'root');
+$db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', '');
 
 // Vérifiez si le formulaire est soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

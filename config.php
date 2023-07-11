@@ -4,7 +4,7 @@
 $host = "localhost"; // Adresse du serveur MySQL
 $dbname = "gparrot"; // Nom de la base de données
 $username = "root"; // Nom d'utilisateur MySQL
-$password = "root"; // Mot de passe MySQL
+$password = ""; // Mot de passe MySQL
 
 try {
     // Connexion à la base de données

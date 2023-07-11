@@ -19,7 +19,7 @@
             <ul class="navbar-nav me-auto">
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="../apps/cars/">Gérer le parc occasion</a>
+                    <a class="nav-link" href="#">Gérer le parc occasion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../apps/services/">Gérer les services</a>

@@ -19,7 +19,7 @@ if (!isset($_POST['user_id'])) {
 $user_id = $_POST['user_id'];
 
 // Connectez-vous à la base de données
-$db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', 'root');
+$db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', '');
 
 // Supprimer l'utilisateur de la base de données
 $deleteQuery = $db->prepare('DELETE FROM users WHERE id = :user_id');

@@ -1,7 +1,7 @@
 <?php
 // Établir la connexion à la base de données MySQL
 $dsn = 'mysql:host=localhost;dbname=gparrot';
-$pdo = new PDO($dsn, 'admin', 'pass');
+$pdo = new PDO($dsn, 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $id = $_GET['id'] ?? null;

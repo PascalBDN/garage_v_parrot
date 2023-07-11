@@ -12,7 +12,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
 
 // Connectez-vous à la base de données
-$db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', 'root');
+$db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', '');
 
 // Récupérez tous les utilisateurs depuis la base de données
 $query = $db->query('SELECT id, username, email FROM users WHERE role = "staff"');

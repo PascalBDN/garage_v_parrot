@@ -3,7 +3,7 @@ session_start();
 // Connexion à la base de données
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "gparrot";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

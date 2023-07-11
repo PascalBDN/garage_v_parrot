@@ -9,7 +9,7 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'admin' && $_SESSION['ro
 }
 
 $dsn = 'mysql:host=localhost;dbname=gparrot';
-$pdo = new PDO($dsn, 'admin', 'pass');
+$pdo = new PDO($dsn, 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $stmt = $pdo->prepare("SELECT * FROM cars ORDER BY id DESC");

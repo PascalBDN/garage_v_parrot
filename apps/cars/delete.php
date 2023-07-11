@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Connexion à la base de données
     $dsn = 'mysql:host=localhost;dbname=gparrot';
-    $pdo = new PDO($dsn, 'admin', 'pass');
+    $pdo = new PDO($dsn, 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Vérifier si le formulaire a été soumis avec confirmation
