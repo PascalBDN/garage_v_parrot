@@ -1,7 +1,7 @@
 <?php
 // Inclure l'en-tête
-include('header.php');
-include('navbar.php');
+include('includes/header.php');
+include('includes/navbar.php');
 ?>
 
 <body>
@@ -24,7 +24,7 @@ include('navbar.php');
 
     <?php
     // Code de connexion à la base de données
-    include('config.php');
+    include('includes/config.php');
 
     try {
         // Connexion à la base de données via PDO
@@ -129,7 +129,7 @@ include('navbar.php');
 
     <?php
 // Inclure le pied de page
-include('footer.php');
+include('includes/footer.php');
 ?>
 
     <!-- jQuery -->

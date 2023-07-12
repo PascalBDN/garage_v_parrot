@@ -1,7 +1,7 @@
 <?php
 // Inclure l'en-tête
-include('header.php');
-include('navbar.php');
+include('includes/header.php');
+include('includes/navbar.php');
 ?>
 
 <body>

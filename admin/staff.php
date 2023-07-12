@@ -12,7 +12,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'staff') {
 
 
 // Inclure le fichier de configuration
-require_once '../config.php';
+require_once '../includes/config.php';
 
 include ('headerstaff.php');
 ?>

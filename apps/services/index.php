@@ -7,7 +7,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     echo '<script>window.location.href = "../../admin/index.php";</script>';
     exit;
 }
-include('../../config.php');
+include('../../includes/config.php');
 include('header.php');
 ?>
 

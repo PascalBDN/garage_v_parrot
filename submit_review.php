@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 
 
 // Inclure le fichier de configuration
-require_once 'config.php';
+require_once 'includes/config.php';
 
 // Récupérer les données du formulaire
 $name = $_POST['name'];

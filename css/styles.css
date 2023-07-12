@@ -56,4 +56,8 @@ footer {
 }
 
 
-
+.contact-list li {
+    border-left: 2px solid #FF0000; /* Couleur de la ligne verticale */
+    padding-left: 10px; /* Espacement entre la ligne et le contenu */
+    margin-bottom: 10px; /* Espacement entre les éléments li */
+}

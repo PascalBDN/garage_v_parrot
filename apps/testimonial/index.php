@@ -22,7 +22,7 @@
         <label for="rating" class="form-label">Note</label>
         <select class="form-select" id="rating" name="rating" required>
             <option selected>Choisir...</option>
-            <option value="1">1</option>
+            <option value="1">1</option> 
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>

@@ -1,7 +1,7 @@
 <?php
 
 // Inclure le fichier de configuration
-require_once 'config.php';
+require_once '../../includes/config.php';
 
 // Récupérer l'ID de l'avis
 $id = $_GET['id'];

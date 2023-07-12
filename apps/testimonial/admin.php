@@ -11,12 +11,15 @@
 </head>
 
 <body>
+    <?php
+// Inclure le fichier de configuration
+require_once '../../includes/config.php';
+include 'header.php';
+?>
+
     <h1>Gestion des avis clients</h1>
     
     <?php
-
-// Inclure le fichier de configuration
-require_once 'config.php';
 
 
 

@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('includes/config.php');
 
 $sql = "SELECT id, nom, description FROM services";
 $stmt = $db->prepare($sql);

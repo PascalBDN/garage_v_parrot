@@ -1,6 +1,6 @@
 <?php
 // Code de connexion à la base de données
-include('config.php');
+include('includes/config.php');
 
 // Récupérer l'identifiant du véhicule depuis la requête GET
 $carId = $_GET['id'] ?? null;

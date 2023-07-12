@@ -1,9 +1,9 @@
 <?php
 // Inclure le fichier de configuration
-require_once 'config.php';
+require 'includes/config.php';
 // Inclure l'en-tête
-include('header.php');
-include('navbar.php');
+include('includes/header.php');
+include('includes/navbar.php');
 
 // Récupérer les avis approuvés de la base de données
 $query = "SELECT * FROM avis_clients WHERE (approved = 1 AND (note = 4 OR note = 5)) ORDER BY id DESC";
@@ -97,9 +97,9 @@ shuffle($reviews);
         </div>
     </div>
 </div>
-<script src="srcipts/main.js"></script>
+
 <?php
 // Inclure le pied de page
-include('footer.php');
+include('includes/footer.php');
 ?>
-
+<script src="srcipts/main.js"></script>

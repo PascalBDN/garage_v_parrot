@@ -35,7 +35,7 @@ if ($_SESSION['role'] === 'admin') {
     <?php
 
     // Inclure le fichier de configuration
-    require_once 'config.php';
+    require_once '../../includes/config.php';
 
     // Récupérer tous les avis non approuvés de la base de données
     $query = "SELECT * FROM avis_clients WHERE approved = 0 ORDER BY id DESC";

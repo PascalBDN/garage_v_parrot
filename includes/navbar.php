@@ -2,7 +2,7 @@
         <nav class="navbar navbar-expand navbar-dark navbar-pink">
         <div class="container-fluid">
                 <!-- Titre de la page -->
-                <a href="#" class="navbar-brand"><img class="rounded" src="images/Garage V Parrot.png" alt="Logo Garage V Parrot" width="150" height="150"></a>
+                <a href="index.php" class="navbar-brand"><img class="rounded" src="images/Garage V Parrot.png" alt="Logo Garage V Parrot" width="150" height="150"></a>
                 <div class="collapse navbar-collapse"></div>
                 <!-- Elements de menu -->
                 <ul class="navbar-nav">

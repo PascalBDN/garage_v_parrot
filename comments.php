@@ -1,8 +1,8 @@
 <?php
-include ('header.php');
-include ('navbar.php');
+include ('includes/header.php');
+include ('includes/navbar.php');
 // Inclure le fichier de configuration
-require_once 'config.php';
+require_once 'includes/config.php';
 
 
 
@@ -75,4 +75,4 @@ echo '</nav>';
 </form>
 
 <?php
-include ('footer.php');
+include ('includes/footer.php');
