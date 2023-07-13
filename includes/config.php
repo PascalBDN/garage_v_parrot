@@ -1,10 +1,21 @@
 <?php
+require 'vendor\autoload.php';
+
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/', '.env');
+$dotenv->load();
+
+$host = $_ENV['DB_HOST']; // Adresse du serveur MySQL
+$dbname = $_ENV['DB_NAME']; // Nom de la base de données    
+$username = $_ENV['DB_USER']; // Nom d'utilisateur MySQL   
+$password = $_ENV['DB_PASSWORD']; // Mot de passe MySQL
 
 // Informations de connexion à la base de données
-$host = "localhost"; // Adresse du serveur MySQL
-$dbname = "gparrot"; // Nom de la base de données
-$username = "root"; // Nom d'utilisateur MySQL
-$password = ""; // Mot de passe MySQL
+//$host = $_ENV['DB_HOST'] = 'localhost'; // Adresse du serveur MySQL
+//$dbname = $_ENV['DB_NAME'] = 'gparrot'; // Nom de la base de données
+//$username = $_ENV['DB_USER'] = 'root'; // Nom d'utilisateur MySQL
+//$password = $_ENV['DB_PASSWORD'] = ''; // Mot de passe MySQL
+
 
 try {
     // Connexion à la base de données
@@ -16,3 +27,4 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données: " . $e->getMessage());
 }
+
