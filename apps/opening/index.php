@@ -1,14 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "gparrot";
+// Établir la connexion à la base de données MySQL
+require '../../includes/config.php';
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $conn->prepare("SELECT * FROM Horaires");
+    $stmt = $db->prepare("SELECT * FROM Horaires");
     $stmt->execute();
     $horaires = $stmt->fetchAll();
 } catch(PDOException $e) {

@@ -1,8 +1,6 @@
 <?php
 // Établir la connexion à la base de données MySQL
-$dsn = 'mysql:host=localhost;dbname=gparrot';
-$pdo = new PDO($dsn, 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require '../../includes/config.php';
 
 $id = $_GET['id'] ?? null;
 
@@ -11,7 +9,7 @@ if (!$id) {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM cars WHERE id = :id");
+$stmt = $db->prepare("SELECT * FROM cars WHERE id = :id");
 $stmt->bindValue(':id', $id);
 $stmt->execute();
 

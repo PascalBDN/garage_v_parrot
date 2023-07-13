@@ -1,20 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "gparrot";
+// Établir la connexion à la base de données MySQL
+require '../../includes/config.php';
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $stmt = $conn->prepare("UPDATE Horaires SET ouverture_matin=?, fermeture_matin=?, ouverture_apresmidi=?, fermeture_apresmidi=? WHERE jour=?");
+        $stmt = $db->prepare("UPDATE Horaires SET ouverture_matin=?, fermeture_matin=?, ouverture_apresmidi=?, fermeture_apresmidi=? WHERE jour=?");
         $stmt->execute([$_POST['ouverture_matin'], $_POST['fermeture_matin'], $_POST['ouverture_apresmidi'], $_POST['fermeture_apresmidi'], $_POST['jour']]);
         echo "Horaires mis à jour avec succès";
     }
 
-    $stmt = $conn->prepare("SELECT * FROM Horaires");
+    $stmt = $db->prepare("SELECT * FROM Horaires");
     $stmt->execute();
     $horaires = $stmt->fetchAll();
 } catch(PDOException $e) {

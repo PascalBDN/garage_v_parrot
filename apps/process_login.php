@@ -3,8 +3,8 @@
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Connectez-vous à la base de données
-$db = new PDO('mysql:host=localhost;dbname=gparrot', 'root', 'root');
+// Établir la connexion à la base de données MySQL
+require '../../includes/config.php';
 
 // Récupérez l'utilisateur de la base de données en utilisant l'e-mail
 $query = $db->prepare('SELECT * FROM users WHERE email = :email');

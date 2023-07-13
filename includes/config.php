@@ -1,20 +1,15 @@
 <?php
 require 'vendor\autoload.php';
 
-
+// Chargement des variables d'environnement à partir du fichier .env
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/', '.env');
 $dotenv->load();
 
+// Récupération des informations de connexion à la base de données depuis les variables d'environnement
 $host = $_ENV['DB_HOST']; // Adresse du serveur MySQL
 $dbname = $_ENV['DB_NAME']; // Nom de la base de données    
 $username = $_ENV['DB_USER']; // Nom d'utilisateur MySQL   
 $password = $_ENV['DB_PASSWORD']; // Mot de passe MySQL
-
-// Informations de connexion à la base de données
-//$host = $_ENV['DB_HOST'] = 'localhost'; // Adresse du serveur MySQL
-//$dbname = $_ENV['DB_NAME'] = 'gparrot'; // Nom de la base de données
-//$username = $_ENV['DB_USER'] = 'root'; // Nom d'utilisateur MySQL
-//$password = $_ENV['DB_PASSWORD'] = ''; // Mot de passe MySQL
 
 
 try {

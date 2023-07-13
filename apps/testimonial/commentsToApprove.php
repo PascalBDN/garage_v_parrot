@@ -8,11 +8,11 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'admin' && $_SESSION['ro
     exit;
 }
 
-$dsn = 'mysql:host=localhost;dbname=gparrot';
-$pdo = new PDO($dsn, 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Établir la connexion à la base de données MySQL
+require '../../includes/config.php';
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$stmt = $pdo->prepare("SELECT * FROM cars ORDER BY id DESC");
+$stmt = $db->prepare("SELECT * FROM cars ORDER BY id DESC");
 $stmt->execute();
 
 $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);

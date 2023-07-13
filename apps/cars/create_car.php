@@ -1,8 +1,6 @@
 <?php
 // Établir la connexion à la base de données MySQL
-$dsn = 'mysql:host=localhost;dbname=gparrot';
-$pdo = new PDO($dsn, 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require '../../includes/config.php';
 
 // Vérifier que les champs sont bien complétés
 $erreurs = []; // Tableau pour stocker les erreurs de validation
@@ -59,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $places = isset($_POST['places']) ? $_POST['places'] : [];
 
             // Préparer et exécuter la requête d'insertion des données dans la table "cars"
-            $stmt = $pdo->prepare("INSERT INTO cars (img, modele, prix, annee, energie, kilometrage, description, securite, places) 
+            $stmt = $db->prepare("INSERT INTO cars (img, modele, prix, annee, energie, kilometrage, description, securite, places) 
                 VALUES (:img, :modele, :prix, :annee, :energie, :kilometrage, :description, :securite, :places)");
             $stmt->bindValue(':img', $imgPath);
             $stmt->bindValue(':modele', $modele);
